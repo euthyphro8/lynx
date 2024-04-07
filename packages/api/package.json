@@ -1,0 +1,28 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "module",
+  "scripts": {
+    "lint": "tsc",
+    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js --format=esm",
+    "start": "node dist/index.js",
+    "dev:tsc": "tsc --watch --preserveWatchOutput",
+    "dev:esbuild": "yarn build --watch",
+    "dev:node": "node --watch-preserve-output dist/index.js",
+    "dev": "conc -n \"lint,build,node\" -c \"red,green,blue\" \"npm run dev:tsc\" \"npm run dev:esbuild\" \"npm run dev:node\""
+  },
+  "keywords": [],
+  "author": "Josh Hess",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.5",
+    "esbuild": "^0.20.2",
+    "concurrently": "^8.2.2",
+    "typescript": "^5.4.4"
+  },
+  "dependencies": {
+    "fastify": "^4.26.2"
+  }
+}
